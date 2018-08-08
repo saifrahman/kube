@@ -1,0 +1,16 @@
+{
+  "name": "node_hello",
+  "version": "0.0.1",
+  "description": "Simple hellof a world program",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/jasmine-node spec"
+  },
+  "author": "sur000e",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3",
+    "jasmine-node": "^1.14.5",
+    "request": "^2.81.0"
+  }
+}

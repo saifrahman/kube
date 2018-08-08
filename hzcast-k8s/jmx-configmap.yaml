@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: jmx-configmap
+data:
+  -Dhazelcast.jmx: "true"
+  -Dcom.sun.management.jmxremote : "true"
+  -Dcom.sun.management.jmxremote.port : "1099"
+  -Dcom.sun.management.jmxremote.authenticate : "false"

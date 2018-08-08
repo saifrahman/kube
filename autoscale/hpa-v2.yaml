@@ -1,0 +1,55 @@
+apiVersion: v1
+items:
+- apiVersion: autoscaling/v2alpha1
+  kind: HorizontalPodAutoscaler
+  metadata:
+    creationTimestamp: 2017-09-19T05:48:40Z
+    name: php-apache
+    namespace: default
+    resourceVersion: "529080"
+    selfLink: /apis/autoscaling/v2alpha1/namespaces/default/horizontalpodautoscalers/php-apache
+    uid: 30356a10-9cfe-11e7-856a-080027f1a5dc
+  spec:
+    maxReplicas: 10
+    metrics:
+    - resource:
+        name: cpu
+        targetAverageUtilization: 50
+      type: Resource
+    minReplicas: 1
+    scaleTargetRef:
+      apiVersion: extensions/v1beta1
+      kind: Deployment
+      name: php-apache
+  status:
+    conditions:
+    - lastTransitionTime: 2017-09-19T06:06:18Z
+      message: the time since the previous scale is still within the downscale forbidden
+        window
+      reason: BackoffDownscale
+      status: "False"
+      type: AbleToScale
+    - lastTransitionTime: 2017-09-19T05:50:10Z
+      message: the HPA was able to succesfully calculate a replica count from cpu
+        resource utilization (percentage of request)
+      reason: ValidMetricFound
+      status: "True"
+      type: ScalingActive
+    - lastTransitionTime: 2017-09-19T06:06:18Z
+      message: the desired replica count was zero
+      reason: TooFewReplicas
+      status: "True"
+      type: ScalingLimited
+    currentMetrics:
+    - resource:
+        currentAverageUtilization: 0
+        currentAverageValue: "0"
+        name: cpu
+      type: Resource
+    currentReplicas: 4
+    desiredReplicas: 4
+    lastScaleTime: 2017-09-19T06:03:18Z
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""

@@ -1,0 +1,10 @@
+**/.metadata/
+bin/
+.settings/
+**/.project
+**/.classpath
+**/.sonarlint/
+**/target/
+**/*.bin
+**/.DS_Store
+**/.settings/

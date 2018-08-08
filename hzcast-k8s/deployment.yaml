@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  name: hazelcast
+spec:
+  ports:
+  - port: 5701
+    protocol: TCP
+    targetPort: 5701
+  selector:
+    run: hazelcast
+  type: LoadBalancer
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: hazelcast
+  name: hazelcast
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      run: hazelcast
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: hazelcast
+    spec:
+      containers:
+      - image: quay.io/pires/hazelcast-kubernetes:3.8.5
+        name: hazelcast
+        ports:
+        - containerPort: 80
+        resources: {}

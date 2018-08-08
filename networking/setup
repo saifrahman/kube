@@ -1,0 +1,4 @@
+iplink
+/Users/sur000e/workspace-kube/admin/ => /vagrant
+vagrnat up
+ssh-copy-id vagrant@10.10.1.101   -> pwd = vagrant
